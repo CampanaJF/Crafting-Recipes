@@ -3,10 +3,9 @@ spring:
     username: root
     password: 11037
     url: jdbc:mysql://localhost:3306/crafting_recipes
-    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: validate
     defer-datasource-initialization: true
     show-sql: true
   sql:
