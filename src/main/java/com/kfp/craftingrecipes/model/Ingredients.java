@@ -21,8 +21,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "crafting_ingredients")
-public class CraftingIngredients {
+@Table(name = "ingredients")
+public class Ingredients {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

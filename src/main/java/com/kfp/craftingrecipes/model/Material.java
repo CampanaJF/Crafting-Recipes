@@ -49,6 +49,6 @@ public class Material {
 
     @OneToMany(mappedBy = "material", cascade = CascadeType.ALL)
     @JsonIgnore
-    private List<CraftingIngredients> craftingIngredients;
+    private List<Ingredients> ingredients;
 
 }

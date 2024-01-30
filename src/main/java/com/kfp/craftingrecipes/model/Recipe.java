@@ -51,10 +51,10 @@ public class Recipe {
     @Column(name = "sell_price")
     private BigDecimal sellPrice;
 
-    @Column(name = "description")
-    private String description;
+//    @Column(name = "description")
+//    private String description;
 
     @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL)
-    private List<CraftingIngredients> craftingIngredients;
+    private List<Ingredients> ingredients;
 
 }
