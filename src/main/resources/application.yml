@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    username: root
+    password: 11037
+    url: jdbc:mysql://localhost:3306/crafting_recipes
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    defer-datasource-initialization: true
+    show-sql: true
+  sql:
+    init:
+      mode: always
+
+springdoc:
+  api-docs:
+    path: /api-docs
+
+# Swagger UI path -> http://localhost:8080/swagger-ui/index.html
+# springdoc.api-docs.path is renaming of the OG path for the JSON Swagger
+# changing it to this -> http://localhost:8080/api-docs
