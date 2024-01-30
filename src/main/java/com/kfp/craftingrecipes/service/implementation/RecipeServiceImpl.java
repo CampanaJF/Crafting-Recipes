@@ -1,7 +1,6 @@
 package com.kfp.craftingrecipes.service.implementation;
 
 import com.kfp.craftingrecipes.exception.RecipeNotFoundException;
-import com.kfp.craftingrecipes.model.Recipe;
 import com.kfp.craftingrecipes.model.view.RecipeView;
 import com.kfp.craftingrecipes.repository.RecipeJpaRepository;
 import com.kfp.craftingrecipes.service.RecipeService;
@@ -17,10 +16,8 @@ public class RecipeServiceImpl implements RecipeService {
     private final RecipeJpaRepository recipeJpaRepository;
 
     @Override
-    public Recipe getRecipe(Integer recipeId) throws RecipeNotFoundException{
-        return recipeJpaRepository.findById(recipeId)
-                .orElseThrow( () -> new RecipeNotFoundException(
-                        String.format("No candidate with id: %s",recipeId)));
+    public RecipeView getRecipe(Integer recipeId) throws RecipeNotFoundException{
+        return recipeJpaRepository.getRecipeById(recipeId);
     }
 
     @Override

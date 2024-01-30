@@ -17,4 +17,6 @@ public interface RecipeJpaRepository extends JpaRepository<Recipe, Integer> {
     )
     List<RecipeView> findRecipeView(Integer id);
 
+    RecipeView getRecipeById(Integer id);
+
 }

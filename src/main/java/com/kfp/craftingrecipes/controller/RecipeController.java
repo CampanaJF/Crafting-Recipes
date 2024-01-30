@@ -1,7 +1,6 @@
 package com.kfp.craftingrecipes.controller;
 
 import com.kfp.craftingrecipes.exception.RecipeNotFoundException;
-import com.kfp.craftingrecipes.model.Recipe;
 import com.kfp.craftingrecipes.model.view.RecipeView;
 import com.kfp.craftingrecipes.service.RecipeService;
 import lombok.AllArgsConstructor;
@@ -23,7 +22,7 @@ public class RecipeController {
     private final RecipeService recipeService;
 
     @GetMapping("/{recipeId}")
-    public ResponseEntity<Recipe> get(@PathVariable("recipeId") Integer recipeId){
+    public ResponseEntity<RecipeView> get(@PathVariable("recipeId") Integer recipeId){
         try{
             return ResponseEntity.ok(recipeService.getRecipe(recipeId));
         }catch(RecipeNotFoundException e){
