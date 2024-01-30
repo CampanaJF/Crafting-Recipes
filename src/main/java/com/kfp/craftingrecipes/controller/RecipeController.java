@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.List;
-
 @RestController
 @AllArgsConstructor
 @RequestMapping("/recipes")
@@ -30,12 +28,4 @@ public class RecipeController {
         }
     }
 
-    @GetMapping("view/{recipeId}")
-    public ResponseEntity<List<RecipeView>> getView(@PathVariable("recipeId") Integer recipeId){
-        try{
-            return ResponseEntity.ok(recipeService.getRecipeView(recipeId));
-        }catch(RecipeNotFoundException e){
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage(), e);
-        }
-    }
 }

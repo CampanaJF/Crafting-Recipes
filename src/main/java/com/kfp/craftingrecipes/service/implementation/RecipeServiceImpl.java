@@ -7,8 +7,6 @@ import com.kfp.craftingrecipes.service.RecipeService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 @AllArgsConstructor
 public class RecipeServiceImpl implements RecipeService {
@@ -20,8 +18,4 @@ public class RecipeServiceImpl implements RecipeService {
         return recipeJpaRepository.getRecipeById(recipeId);
     }
 
-    @Override
-    public List<RecipeView> getRecipeView(Integer id) {
-        return recipeJpaRepository.findRecipeView(id);
-    }
 }
