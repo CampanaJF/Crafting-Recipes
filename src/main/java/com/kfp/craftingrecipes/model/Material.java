@@ -1,6 +1,6 @@
 package com.kfp.craftingrecipes.model;
 
-import com.kfp.craftingrecipes.model.enumerate.ProfessionType;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.kfp.craftingrecipes.model.enumerate.RarityType;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -27,8 +27,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "recipes")
-public class Recipe {
+@Table(name = "materials")
+public class Material {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,17 +44,11 @@ public class Recipe {
     @Enumerated(EnumType.STRING)
     private RarityType rarityType;
 
-    @Column(name = "profession")
-    @Enumerated(EnumType.STRING)
-    private ProfessionType professionType;
-
     @Column(name = "sell_price")
     private BigDecimal sellPrice;
 
-    @Column(name = "description")
-    private String description;
-
-    @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "material", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<CraftingIngredients> craftingIngredients;
 
 }
