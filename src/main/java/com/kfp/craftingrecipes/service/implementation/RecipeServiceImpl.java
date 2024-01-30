@@ -15,7 +15,9 @@ public class RecipeServiceImpl implements RecipeService {
 
     @Override
     public RecipeView getRecipe(Integer recipeId) throws RecipeNotFoundException{
-        return recipeJpaRepository.getRecipeById(recipeId);
+        return recipeJpaRepository.getRecipeById(recipeId)
+                .orElseThrow( () -> new RecipeNotFoundException(
+                        String.format("No candidate with id: %s",recipeId)));
     }
 
 }
