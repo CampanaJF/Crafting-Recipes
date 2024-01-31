@@ -26,11 +26,12 @@ public class RecipeController implements RecipeApi {
     private final RecipeService recipeService;
 
     //TODO
-    // search by recipe name
     // search by profession (add recipes from other professions first)
     // search by rarity
     // add a new recipe
     // dynamic searching by all fields at once
+    // move jpa native queries to their own file
+    // turn those queries into procedures maybe?
 
     @Override
     @GetMapping("/{recipeId}")

@@ -10,6 +10,6 @@ public interface RecipeIngredientsProjection {
     String getName();
 
     @Value("#{target.ingredients}")
-    List<IngredientsView>  getIngredients();
+    List<IngredientsProjection>  getIngredients();
 
 }

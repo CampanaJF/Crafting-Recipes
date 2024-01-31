@@ -24,4 +24,5 @@ public interface RecipeJpaRepository extends JpaRepository<Recipe, Integer> {
             value = "select r.name from recipes r where r.name like %:search% ;"
     )
     List<RecipeNameProjection> searchRecipes(String search);
+
 }

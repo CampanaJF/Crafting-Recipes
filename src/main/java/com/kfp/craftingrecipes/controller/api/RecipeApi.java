@@ -41,6 +41,6 @@ public interface RecipeApi {
     )
     @ApiResponses(value = {
             @ApiResponse(description = "Success", responseCode = "200")})
-    @GetMapping("/{searchField}")
+    @GetMapping("search/{searchField}")
     ResponseEntity<List<RecipeNameProjection>> searchByName(@PathVariable("searchField") String searchField);
 }
