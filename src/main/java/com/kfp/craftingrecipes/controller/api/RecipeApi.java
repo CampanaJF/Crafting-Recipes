@@ -1,13 +1,16 @@
 package com.kfp.craftingrecipes.controller.api;
 
 import com.kfp.craftingrecipes.exception.RecipeNotFoundException;
-import com.kfp.craftingrecipes.model.view.RecipeView;
+import com.kfp.craftingrecipes.model.view.RecipeIngredientsProjection;
+import com.kfp.craftingrecipes.model.view.RecipeNameProjection;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+
+import java.util.List;
 
 public interface RecipeApi {
 
@@ -19,7 +22,18 @@ public interface RecipeApi {
     @ApiResponses(value = {
             @ApiResponse(description = "Success", responseCode = "200"),
             @ApiResponse(description = "Bad Request", responseCode = "400")})
+    @GetMapping("/{recipeId}")
+    ResponseEntity<RecipeIngredientsProjection> get(@PathVariable("recipeId") Integer recipeId)
+            throws RecipeNotFoundException;
+
+    @Operation(
+            description = "It should get a list of all available recipes, only their names",
+            summary =  "list the names of all recipes"
+    )
+    @ApiResponses(value = {
+            @ApiResponse(description = "Success", responseCode = "200"),
+            @ApiResponse(description = "Bad Request", responseCode = "400")})
     @GetMapping
-    ResponseEntity<RecipeView> get(@PathVariable("recipeId") Integer recipeId)
+    ResponseEntity<List<RecipeNameProjection>> getAll()
             throws RecipeNotFoundException;
 }

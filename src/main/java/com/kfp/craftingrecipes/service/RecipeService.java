@@ -1,9 +1,14 @@
 package com.kfp.craftingrecipes.service;
 
-import com.kfp.craftingrecipes.model.view.RecipeView;
+import com.kfp.craftingrecipes.model.view.RecipeIngredientsProjection;
+import com.kfp.craftingrecipes.model.view.RecipeNameProjection;
+
+import java.util.List;
 
 public interface RecipeService {
 
-    RecipeView getRecipe(Integer id);
+    RecipeIngredientsProjection getRecipe(Integer id);
+
+    List<RecipeNameProjection> getAll();
 
 }

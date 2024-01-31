@@ -2,7 +2,8 @@ package com.kfp.craftingrecipes.controller;
 
 import com.kfp.craftingrecipes.controller.api.RecipeApi;
 import com.kfp.craftingrecipes.exception.RecipeNotFoundException;
-import com.kfp.craftingrecipes.model.view.RecipeView;
+import com.kfp.craftingrecipes.model.view.RecipeIngredientsProjection;
+import com.kfp.craftingrecipes.model.view.RecipeNameProjection;
 import com.kfp.craftingrecipes.service.RecipeService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
+
+import java.util.List;
 
 @Tag(name = "recipes")
 @RestController
@@ -25,12 +28,18 @@ public class RecipeController implements RecipeApi {
 
     @Override
     @GetMapping("/{recipeId}")
-    public ResponseEntity<RecipeView> get(@PathVariable("recipeId") Integer recipeId){
+    public ResponseEntity<RecipeIngredientsProjection> get(@PathVariable("recipeId") Integer recipeId){
         try{
             return ResponseEntity.ok(recipeService.getRecipe(recipeId));
         }catch(RecipeNotFoundException e){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage(), e);
         }
+    }
+
+    @Override
+    @GetMapping
+    public ResponseEntity<List<RecipeNameProjection>> getAll(){
+        return ResponseEntity.ok(recipeService.getAll());
     }
 
 }
