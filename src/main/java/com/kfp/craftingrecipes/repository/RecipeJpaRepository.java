@@ -17,6 +17,11 @@ public interface RecipeJpaRepository extends JpaRepository<Recipe, Integer> {
             nativeQuery = true,
             value = "select r.name from recipes r; "
     )
-    List<RecipeNameProjection> getRecipes();
+    List<RecipeNameProjection> findAllRecipes();
 
+    @Query(
+            nativeQuery = true,
+            value = "select r.name from recipes r where r.name like %:search% ;"
+    )
+    List<RecipeNameProjection> searchRecipes(String search);
 }

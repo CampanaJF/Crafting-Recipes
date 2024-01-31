@@ -11,4 +11,6 @@ public interface RecipeService {
 
     List<RecipeNameProjection> getAll();
 
+    List<RecipeNameProjection> searchByName(String searchField);
+
 }

@@ -28,12 +28,19 @@ public interface RecipeApi {
 
     @Operation(
             description = "It should get a list of all available recipes, only their names",
-            summary =  "list the names of all recipes"
+            summary =  "obtain a list of the names of all recipes"
     )
     @ApiResponses(value = {
-            @ApiResponse(description = "Success", responseCode = "200"),
-            @ApiResponse(description = "Bad Request", responseCode = "400")})
+            @ApiResponse(description = "Success", responseCode = "200")})
     @GetMapping
-    ResponseEntity<List<RecipeNameProjection>> getAll()
-            throws RecipeNotFoundException;
+    ResponseEntity<List<RecipeNameProjection>> getAll();
+
+    @Operation(
+            description = "It should get a list of all recipes that contain the text that was searched for",
+            summary =  "search for a recipe by its name"
+    )
+    @ApiResponses(value = {
+            @ApiResponse(description = "Success", responseCode = "200")})
+    @GetMapping("/{searchField}")
+    ResponseEntity<List<RecipeNameProjection>> searchByName(@PathVariable("searchField") String searchField);
 }

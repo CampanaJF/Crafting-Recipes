@@ -25,6 +25,12 @@ public class RecipeController implements RecipeApi {
 
     private final RecipeService recipeService;
 
+    //TODO
+    // search by recipe name
+    // search by profession (add recipes from other professions first)
+    // search by rarity
+    // add a new recipe
+    // dynamic searching by all fields at once
 
     @Override
     @GetMapping("/{recipeId}")
@@ -41,5 +47,12 @@ public class RecipeController implements RecipeApi {
     public ResponseEntity<List<RecipeNameProjection>> getAll(){
         return ResponseEntity.ok(recipeService.getAll());
     }
+
+    @Override
+    @GetMapping("search/{searchField}")
+    public ResponseEntity<List<RecipeNameProjection>> searchByName(String searchField) {
+        return ResponseEntity.ok(recipeService.searchByName(searchField));
+    }
+
 
 }

@@ -25,7 +25,12 @@ public class RecipeServiceImpl implements RecipeService {
 
     @Override
     public List<RecipeNameProjection> getAll() {
-        return recipeJpaRepository.getRecipes();
+        return recipeJpaRepository.findAllRecipes();
+    }
+
+    @Override
+    public List<RecipeNameProjection> searchByName(String searchField) {
+        return recipeJpaRepository.searchRecipes(searchField);
     }
 
 }

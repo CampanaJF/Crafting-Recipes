@@ -12,7 +12,7 @@ import io.swagger.v3.oas.annotations.servers.Server;
                         email = "fcampana@mobydigital.com",
                         url = "http://localhost:8080/swagger-ui/index.html"
                 ),
-                description = "OpenAPI documentation for bookstore this spring boot application is" +
+                description = "OpenAPI documentation for crafting-recipes this spring boot application is" +
                         " for testing and implementing new concepts for fun.",
                 title = "Crafting Recipes - Franco",
                 version = "1.0"
