@@ -41,6 +41,28 @@ public interface RecipeApi {
     )
     @ApiResponses(value = {
             @ApiResponse(description = "Success", responseCode = "200")})
-    @GetMapping("search/name/{searchField}")
-    ResponseEntity<List<RecipeNameProjection>> searchByName(@PathVariable("searchField") String searchField);
+    @GetMapping("search/name/{search}")
+    ResponseEntity<List<RecipeNameProjection>> searchByName(@PathVariable("search") String search);
+
+    @Operation(
+            description = "It should get a list of all recipes that have the specified profession, since" +
+                    "its a text field and needs to completely match the searched field," +
+                    " the casing is irrelevant",
+            summary =  "search for recipes by their profession"
+    )
+    @ApiResponses(value = {
+            @ApiResponse(description = "Success", responseCode = "200")})
+    @GetMapping("search/profession/{search}")
+    ResponseEntity<List<RecipeNameProjection>> searchByProfession(@PathVariable("search") String search);
+
+    @Operation(
+            description = "It should get a list of all recipes that have the specified rarity, since" +
+                    "its a text field and needs to completely match the searched field," +
+                    " the casing is irrelevant",
+            summary =  "search for recipes by their rarity"
+    )
+    @ApiResponses(value = {
+            @ApiResponse(description = "Success", responseCode = "200")})
+    @GetMapping("search/rarity/{search}")
+    ResponseEntity<List<RecipeNameProjection>> searchByRarity(@PathVariable("search") String search);
 }

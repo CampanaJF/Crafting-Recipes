@@ -13,5 +13,9 @@ public interface RecipeService {
 
     List<RecipeNameProjection> searchByName(String searchField);
 
+    List<RecipeNameProjection> searchByProfession(String searchField);
+
+    List<RecipeNameProjection> searchByRarity(String searchField);
+
 
 }

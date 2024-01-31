@@ -26,9 +26,8 @@ public class RecipeController implements RecipeApi {
     private final RecipeService recipeService;
 
     //TODO
-    // search by profession (add recipes from other professions first)
+    // search by profession
     // search by rarity
-    // add a new recipe
     // dynamic searching by all fields at once
     // move jpa native queries to their own file
     // turn those queries into procedures maybe?
@@ -53,9 +52,21 @@ public class RecipeController implements RecipeApi {
     }
 
     @Override
-    @GetMapping("search/name/{searchField}")
-    public ResponseEntity<List<RecipeNameProjection>> searchByName(String searchField) {
-        return ResponseEntity.ok(recipeService.searchByName(searchField));
+    @GetMapping("search/name/{search}")
+    public ResponseEntity<List<RecipeNameProjection>> searchByName(@PathVariable("search") String search) {
+        return ResponseEntity.ok(recipeService.searchByName(search));
+    }
+
+    @Override
+    @GetMapping("search/profession/{search}")
+    public ResponseEntity<List<RecipeNameProjection>> searchByProfession(@PathVariable("search") String search) {
+        return ResponseEntity.ok(recipeService.searchByProfession(search));
+    }
+
+    @Override
+    @GetMapping("search/rarity/{search}")
+    public ResponseEntity<List<RecipeNameProjection>> searchByRarity(@PathVariable("search") String search) {
+        return ResponseEntity.ok(recipeService.searchByRarity(search));
     }
 
 
