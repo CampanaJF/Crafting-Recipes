@@ -26,9 +26,6 @@ public class RecipeController implements RecipeApi {
     private final RecipeService recipeService;
 
     //TODO
-    // search by profession
-    // search by rarity
-    // dynamic searching by all fields at once
     // move jpa native queries to their own file
     // turn those queries into procedures maybe?
     // filter recipes that use above a certain amount of materials
