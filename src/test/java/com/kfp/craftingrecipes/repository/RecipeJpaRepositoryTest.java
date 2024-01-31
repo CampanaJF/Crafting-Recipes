@@ -12,7 +12,6 @@ import static org.springframework.test.context.jdbc.Sql.ExecutionPhase.AFTER_TES
 
 
 @DataJpaTest
-@Sql(scripts = "/insert-data.sql")
 @Sql(scripts = "/clean-up.sql", executionPhase = AFTER_TEST_METHOD)
 class RecipeJpaRepositoryTest {
 

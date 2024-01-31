@@ -9,7 +9,7 @@ insert ignore into materials (id, name, item_level, rarity, sell_price) values
  (8, "Primal Fire", 65, "Uncommon", 0.60),
  (9, "Primal Air", 65, "Uncommon", 0.60),
  (10, "Primal Water", 65, "Uncommon", 0.60),
- (11, "Primal Earth", 65, "Uncommon", 0.60), --
+ (11, "Primal Earth", 65, "Uncommon", 0.60),
  (12, "Primal Life", 65, "Uncommon", 0.60),
  (13, "Netherweave Cloth", 60, "Common", 0.08),
  (14, "Elemental Blasting Powder", 60, "Common", 0.05),
