@@ -32,6 +32,9 @@ public class RecipeController implements RecipeApi {
     // dynamic searching by all fields at once
     // move jpa native queries to their own file
     // turn those queries into procedures maybe?
+    // filter recipes that use above a certain amount of materials
+    // filter recipes that use materials of a certain rarity
+    // filter recipes by the total cost of their materials
 
     @Override
     @GetMapping("/{recipeId}")
@@ -50,7 +53,7 @@ public class RecipeController implements RecipeApi {
     }
 
     @Override
-    @GetMapping("search/{searchField}")
+    @GetMapping("search/name/{searchField}")
     public ResponseEntity<List<RecipeNameProjection>> searchByName(String searchField) {
         return ResponseEntity.ok(recipeService.searchByName(searchField));
     }
