@@ -55,6 +55,11 @@ public class Recipe {
 //    private String description;
 
     @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL)
-    private List<Ingredients> ingredients;
+    private List<Ingredient> ingredients;
 
+    public Integer getTotalMaterials() {
+        return this.getIngredients().stream()
+                .mapToInt(Ingredient::getQuantity)
+                .sum();
+    }
 }
