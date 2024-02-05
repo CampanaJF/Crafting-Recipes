@@ -15,12 +15,14 @@ springdoc:
   api-docs:
     path: /api-docs
 
-
 logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} %-5level - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
   level:
-    root: "info"
-    org.springframework.web: "info"
-    org.hibernate: "error"
+    root: INFO
+    org.springframework.web: INFO
+    org.hibernate: ERROR
   file:
     name: crafting.log
 
