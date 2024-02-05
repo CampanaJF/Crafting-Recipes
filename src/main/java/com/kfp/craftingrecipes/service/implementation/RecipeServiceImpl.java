@@ -7,12 +7,14 @@ import com.kfp.craftingrecipes.model.view.RecipeNameProjection;
 import com.kfp.craftingrecipes.repository.RecipeJpaRepository;
 import com.kfp.craftingrecipes.service.RecipeService;
 import lombok.AllArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 @AllArgsConstructor
+@Log4j2
 public class RecipeServiceImpl implements RecipeService {
 
     private final RecipeJpaRepository recipeJpaRepository;
@@ -25,8 +27,10 @@ public class RecipeServiceImpl implements RecipeService {
     @Override
     public RecipeIngredientsProjection getRecipe(Integer recipeId) throws RecipeNotFoundException{
         return recipeJpaRepository.getRecipeById(recipeId)
-                .orElseThrow( () -> new RecipeNotFoundException(
-                        String.format("No candidate with id: %s",recipeId)));
+                .orElseThrow(() -> {
+                    log.error(String.format("Recipe not found for id: %s", recipeId));
+                    return new RecipeNotFoundException(String.format("Recipe not found for id: %s", recipeId));
+                });
     }
 
     @Override
