@@ -7,5 +7,7 @@ public interface MaterialProjection {
     @Value("#{target.name}")
     String getName();
 
+    void setName(String name);
+
 
 }

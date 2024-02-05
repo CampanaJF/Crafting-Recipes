@@ -12,4 +12,8 @@ public interface RecipeIngredientsProjection {
     @Value("#{target.ingredients}")
     List<IngredientsProjection>  getIngredients();
 
+    void setName(String name);
+
+    void setIngredients(List<IngredientsProjection> ingredients);
+
 }

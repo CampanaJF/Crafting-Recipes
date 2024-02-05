@@ -6,4 +6,6 @@ public interface RecipeNameProjection {
 
     @Value("#{target.name}")
     String getName();
+
+    void setName(String name);
 }

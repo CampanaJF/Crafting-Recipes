@@ -18,10 +18,6 @@ import static org.springframework.test.context.jdbc.Sql.ExecutionPhase.AFTER_TES
 @Sql(scripts = "/clean-up.sql", executionPhase = AFTER_TEST_METHOD)
 class RecipeJpaRepositoryTest {
 
-    // ESTO SE DEBERIA TESTEAR EN REPO, NO CORRESPONDE AL SERVICE, EL SERVICE NO HACE NADA
-    // SOLO DEVUELVE EL RESULTADO DEL REPO, MIDDLEMAN
-    // PROJECTIONS
-
     @Autowired
     private RecipeJpaRepository recipeJpaRepositoryRepository;
 
@@ -58,8 +54,6 @@ class RecipeJpaRepositoryTest {
     void shouldFindAllMatchingRecipesThatHaveTheSearchedRarity() {
         List<RecipeNameProjection> recipes = recipeJpaRepositoryRepository
                 .searchRecipesByRarity("Common");
-
-        recipes.forEach(recipe -> System.out.println(recipe.getName()));
 
         assertNotNull(recipes);
         assertEquals(4, recipes.size());

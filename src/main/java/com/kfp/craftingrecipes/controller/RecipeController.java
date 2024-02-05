@@ -34,7 +34,6 @@ public class RecipeController implements RecipeApi {
     //TODO
     // move jpa native queries to their own file <-> why? they aren't complex enough yet
     // turn those queries into procedures maybe? <-> go deeper first
-    // filter recipes that use above a certain amount of materials
     // filter recipes that use materials of a certain rarity
     // filter recipes by the total cost of their materials
     // move the testing db from h2 to mysql

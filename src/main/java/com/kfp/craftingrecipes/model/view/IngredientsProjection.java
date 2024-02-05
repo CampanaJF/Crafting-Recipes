@@ -9,4 +9,8 @@ public interface IngredientsProjection {
 
     @Value("#{target.material.name}")
     String getMaterialName();
+
+    void setQuantity(Integer quantity);
+
+    void setMaterialName(String name);
 }
