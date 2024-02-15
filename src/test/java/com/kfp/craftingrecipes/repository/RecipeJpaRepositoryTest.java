@@ -19,11 +19,11 @@ import static org.springframework.test.context.jdbc.Sql.ExecutionPhase.AFTER_TES
 class RecipeJpaRepositoryTest {
 
     @Autowired
-    private RecipeJpaRepository recipeJpaRepositoryRepository;
+    private RecipeJpaRepository recipeJpaRepository;
 
     @Test
     void shouldGetARecipe() {
-        RecipeIngredientsProjection recipeIngredients = recipeJpaRepositoryRepository
+        RecipeIngredientsProjection recipeIngredients = recipeJpaRepository
                 .getRecipeById(1).orElse(null);
 
         assertNotNull(recipeIngredients);
@@ -33,7 +33,7 @@ class RecipeJpaRepositoryTest {
     // H2 IS CASE SENSITIVE FOR THIS CASE, SO THE RESULT IS A LITTLE DIFFERENT
     @Test
     void shouldFindAllMatchingRecipesThatContainTheSearchedParameterInTheirName() {
-        List<RecipeNameProjection> recipes = recipeJpaRepositoryRepository.searchRecipesByName("Ha");
+        List<RecipeNameProjection> recipes = recipeJpaRepository.searchRecipesByName("Ha");
 
         assertNotNull(recipes);
         assertEquals(2, recipes.size());
@@ -42,7 +42,7 @@ class RecipeJpaRepositoryTest {
 
     @Test
     void shouldFindAllMatchingRecipesThatHaveTheSearchedProfession() {
-        List<RecipeNameProjection> recipes = recipeJpaRepositoryRepository
+        List<RecipeNameProjection> recipes = recipeJpaRepository
                 .searchRecipesByProfession("Enchanting");
 
         assertNotNull(recipes);
@@ -52,7 +52,7 @@ class RecipeJpaRepositoryTest {
 
     @Test
     void shouldFindAllMatchingRecipesThatHaveTheSearchedRarity() {
-        List<RecipeNameProjection> recipes = recipeJpaRepositoryRepository
+        List<RecipeNameProjection> recipes = recipeJpaRepository
                 .searchRecipesByRarity("Common");
 
         assertNotNull(recipes);
